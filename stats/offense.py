@@ -4,13 +4,13 @@ import matplotlib.pyplot as plt
 # Step 1
 from data import games
 plays = games[games['type'] == 'play']
-plays.columns = ['type', 'inning', 'team', 'player', 'count', 'pitchs', 'event', 'game_id', 'year']
+plays.columns = ['type', 'inning', 'team', 'player', 'count', 'pitches', 'event', 'game_id', 'year']
 
 # Step 2
 hits = plays.loc[plays['event'].str.contains('^(?:S(?!B)|D|T|HR)'), ['inning', 'event']]
 
 # Step 3
-hits['inning'] = pd.to_numeric(hits['inning'])
+hits.loc[:, 'inning'] = pd.to_numeric(hits.loc[:, 'inning'])
 
 # Step 4
 replacements = {r'^S(.*)': 'single',
