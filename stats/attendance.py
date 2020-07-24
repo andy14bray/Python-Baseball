@@ -24,5 +24,5 @@ plt.xlabel('Year')
 plt.ylabel('Attendance')
 
 # Step 9
-plt.axhline(attendance['attendance'].mean(), label='Mean', linestyle='dashed', color='green')
+plt.axhline(y=attendance['attendance'].mean(), label='Mean', linestyle='dashed', color='green')
 plt.show()
